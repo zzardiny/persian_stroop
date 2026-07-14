@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>آزمون استروپ هیجانی فارسی</title>
+
+    <!-- jsPsych 8 core stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/jspsych@8.2.1/css/jspsych.css"
+    />
+    <!-- Project stylesheet -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <!-- jsPsych renders into this element -->
+    <div id="jspsych-target"></div>
+
+    <!-- ================= jsPsych 8 core ================= -->
+    <script src="https://unpkg.com/jspsych@8.2.1/dist/index.browser.min.js"></script>
+
+    <!-- ================= jsPsych 8 plugins ================= -->
+    <script src="https://unpkg.com/@jspsych/plugin-preload@2.1.0/dist/index.browser.min.js"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@2.1.0/dist/index.browser.min.js"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-button-response@2.1.0/dist/index.browser.min.js"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-survey-html-form@2.1.0/dist/index.browser.min.js"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-instructions@2.1.0/dist/index.browser.min.js"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-fullscreen@2.1.0/dist/index.browser.min.js"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-call-function@2.1.0/dist/index.browser.min.js"></script>
+
+    <!-- ================= Project modules (order matters) ================= -->
+    <script src="js/config-loader.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/pages.js"></script>
+    <script src="js/trials.js"></script>
+    <script src="js/results.js"></script>
+    <script src="js/experiment.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

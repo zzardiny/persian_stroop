@@ -1,0 +1,76 @@
+{
+  "experiment": {
+    "title": "آزمون استروپ هیجانی فارسی",
+    "version": "2.0.0",
+    "language": "fa",
+    "direction": "rtl"
+  },
+  "language": {
+    "default": "fa",
+    "allow_switch": true
+  },
+  "timing": {
+    "fixation_duration_ms": 500,
+    "fixation_jitter_ms": 200,
+    "stimulus_duration_ms": null,
+    "response_window_ms": 3000,
+    "inter_trial_interval_ms": 750,
+    "feedback_duration_ms": 800
+  },
+  "trials": {
+    "practice_repetitions": 2,
+    "main_repetitions": 4,
+    "randomize": true,
+    "show_practice_feedback": true,
+    "show_main_feedback": false
+  },
+  "blocks": {
+    "emotional": true,
+    "classic": true
+  },
+  "classic": {
+    "repetitions": 3,
+    "congruent_ratio": 0.5,
+    "show_feedback": false
+  },
+  "counterbalance": {
+    "enabled": true,
+    "method": "localstorage",
+    "mappings": [
+      { "f": "red", "g": "green", "h": "blue", "j": "yellow" },
+      { "f": "blue", "g": "yellow", "h": "red", "j": "green" },
+      { "f": "green", "g": "red", "h": "yellow", "j": "blue" },
+      { "f": "yellow", "g": "blue", "h": "green", "j": "red" }
+    ]
+  },
+  "response": {
+    "keys": ["f", "g", "h", "j"],
+    "allow_uppercase": true
+  },
+  "colors": {
+    "red":    { "hex": "#e23b3b", "label_fa": "قرمز", "label_en": "Red" },
+    "green":  { "hex": "#2fae5a", "label_fa": "سبز",  "label_en": "Green" },
+    "blue":   { "hex": "#2f6fd6", "label_fa": "آبی",  "label_en": "Blue" },
+    "yellow": { "hex": "#e0a300", "label_fa": "زرد",  "label_en": "Yellow" }
+  },
+  "key_color_map": {
+    "f": "red",
+    "g": "green",
+    "h": "blue",
+    "j": "yellow"
+  },
+  "display": {
+    "fullscreen": true,
+    "font_family": "Vazirmatn",
+    "stimulus_font_size_px": 64,
+    "background_color": "#0f1115",
+    "text_color": "#f2f4f8"
+  },
+  "data": {
+    "auto_download_csv": true,
+    "filename_prefix": "persian_stroop",
+    "save_url": "",
+    "save_method": "POST",
+    "save_format": "csv"
+  }
+}

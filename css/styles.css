@@ -1,0 +1,304 @@
+/* ==========================================================================
+   Persian Emotional Stroop Test — Stylesheet
+   RTL, Vazirmatn font, dark theme
+   ========================================================================== */
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("../assets/Vazirmatn-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("../assets/Vazirmatn-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg: #0f1115;
+  --panel: #191c23;
+  --panel-2: #21252e;
+  --text: #f2f4f8;
+  --muted: #a7afbd;
+  --border: #2b303b;
+  --accent: #4f8cff;
+  --accent-hover: #6fa1ff;
+  --danger: #e23b3b;
+  --radius: 14px;
+  --max-width: 720px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Vazirmatn", "Segoe UI", Tahoma, sans-serif;
+  direction: rtl;
+  text-align: right;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Left-to-right (English) overrides, driven by the <html dir> attribute */
+html[dir="ltr"], html[dir="ltr"] body { direction: ltr; text-align: left; }
+html[dir="ltr"] .stroop-card,
+html[dir="ltr"] .stroop-card p,
+html[dir="ltr"] .stroop-form label { text-align: left; }
+
+/* jsPsych container */
+.jspsych-display-element {
+  direction: inherit;
+  font-family: "Vazirmatn", Tahoma, sans-serif;
+  font-size: 18px;
+  line-height: 1.9;
+}
+.jspsych-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* ---------- Cards / content pages ---------- */
+.stroop-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 34px;
+  max-width: var(--max-width);
+  margin: 24px auto;
+  text-align: right;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+.stroop-card h1 { font-size: 30px; margin: 0 0 6px; }
+.stroop-card h2 { font-size: 24px; margin: 0 0 18px; }
+.stroop-card p  { color: var(--text); font-size: 18px; margin: 12px 0; }
+.stroop-card .muted { color: var(--muted); font-size: 15px; }
+.stroop-subtitle { color: var(--muted); font-size: 18px; margin-bottom: 24px; }
+
+.stroop-list { padding-inline-start: 22px; margin: 12px 0; }
+.stroop-list li { margin: 10px 0; color: var(--text); }
+
+/* ---------- Buttons ---------- */
+.jspsych-btn,
+.stroop-btn {
+  font-family: "Vazirmatn", Tahoma, sans-serif !important;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 28px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.05s ease;
+  margin: 8px 6px;
+}
+.jspsych-btn:hover,
+.stroop-btn:hover { background: var(--accent-hover); }
+.jspsych-btn:active,
+.stroop-btn:active { transform: translateY(1px); }
+.stroop-btn.secondary { background: var(--panel-2); color: var(--text); border: 1px solid var(--border); }
+
+/* ---------- Forms ---------- */
+.stroop-form label {
+  display: block;
+  margin: 18px 0 6px;
+  font-size: 16px;
+  color: var(--text);
+}
+.stroop-form input[type="text"],
+.stroop-form input[type="number"],
+.stroop-form select {
+  width: 100%;
+  padding: 11px 14px;
+  font-family: "Vazirmatn", Tahoma, sans-serif;
+  font-size: 16px;
+  background: var(--panel-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  direction: rtl;
+}
+.stroop-form input:focus,
+.stroop-form select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.stroop-form .checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 20px 0;
+}
+.stroop-form .checkbox-row input { margin-top: 6px; width: 20px; height: 20px; }
+.stroop-error { color: var(--danger); font-size: 14px; margin-top: 6px; min-height: 18px; }
+
+/* ---------- Key legend ---------- */
+.key-legend {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 26px 0;
+}
+.key-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 22px;
+  min-width: 92px;
+}
+.key-cap {
+  font-family: "Segoe UI", monospace;
+  font-weight: 700;
+  font-size: 22px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-bottom-width: 3px;
+  border-radius: 8px;
+  padding: 6px 16px;
+  color: var(--text);
+}
+.key-color-name { font-size: 18px; font-weight: 700; }
+
+/* ---------- Stimulus stage (vertical + horizontal centering) ---------- */
+.stroop-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  width: 100%;
+  text-align: center;
+}
+
+.stroop-fixation {
+  font-size: 48px;
+  color: var(--text);
+  font-weight: 700;
+}
+.stroop-stimulus {
+  font-family: "Vazirmatn", Tahoma, sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  user-select: none;
+}
+.stroop-feedback {
+  font-size: 34px;
+  font-weight: 700;
+}
+.stroop-feedback.correct { color: #2fae5a; }
+.stroop-feedback.incorrect { color: #e23b3b; }
+.stroop-feedback.slow { color: #e0a300; }
+
+/* Persistent on-screen key reminder during trials */
+.trial-key-reminder {
+  position: fixed;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  pointer-events: none;
+}
+.trial-key-reminder .mini {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(33, 37, 46, 0.85);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 15px;
+}
+.trial-key-reminder .mini .cap {
+  font-family: monospace;
+  font-weight: 700;
+  background: var(--panel);
+  border-radius: 5px;
+  padding: 2px 8px;
+}
+
+/* ---------- Results table ---------- */
+.table-wrapper { overflow-x: auto; margin: 16px 0; }
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+.results-table th,
+.results-table td {
+  border: 1px solid var(--border);
+  padding: 10px 14px;
+  text-align: center;
+}
+.results-table thead th {
+  background: var(--panel-2);
+  color: var(--muted);
+  font-weight: 700;
+}
+.results-table tbody td:first-child { font-weight: 700; }
+.stroop-card h3 { font-size: 19px; margin: 0 0 8px; }
+
+/* ---------- Chart ---------- */
+.chart-box {
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  margin: 8px 0 4px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ---------- Language chooser ---------- */
+.lang-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+.lang-buttons .stroop-btn { min-width: 140px; font-size: 18px; }
+
+/* ---------- Loading ---------- */
+.stroop-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 18px;
+  color: var(--muted);
+}
+.spinner {
+  width: 42px; height: 42px;
+  border: 4px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Progress bar (jsPsych) */
+#jspsych-progressbar-container {
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+}
+#jspsych-progressbar-inner { background: var(--accent) !important; }
+
+@media (max-width: 640px) {
+  .stroop-card { padding: 24px 20px; margin: 16px; }
+  .stroop-card h1 { font-size: 24px; }
+}
